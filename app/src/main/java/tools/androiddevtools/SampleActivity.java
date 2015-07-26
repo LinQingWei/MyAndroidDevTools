@@ -2,7 +2,6 @@ package tools.androiddevtools;
 
 import java.util.Arrays;
 
-import DevTools.DataConversion;
 import DevToolsFactory.DevToolsFactory;
 
 import android.os.Bundle;
@@ -22,7 +21,7 @@ public class SampleActivity extends ActionBarActivity implements RadioGroup.OnCh
 		setContentView(R.layout.activity_sample);
 		initialize();
 		devTools = new DevToolsFactory();
-        radioGroup.setOnCheckedChangeListener(this);
+		radioGroup.setOnCheckedChangeListener(this);
 
 	}
 
@@ -42,19 +41,20 @@ public class SampleActivity extends ActionBarActivity implements RadioGroup.OnCh
 						+ Arrays.toString(devTools.getDataTools().byteArray2IntArray(bytesArray2intArray)));
 				break;
 			case R.id.ascii2byte :
-				byte byte1 =(byte)((char)'E') ;
-				byte byte2 =(byte)((char)'F') ;
+				byte byte1 = (byte) ((char) 'E');
+				byte byte2 = (byte) ((char) 'F');
 				tvtest.setText("ASCII in char =    " + "E," + "F" + '\n' + "ASCII in number =    " + byte1 + ',' + byte2
-						+ '\n' + "out =   " + String.format("0x%02x",devTools.getDataTools().uniteBytes(byte1, byte2)));
-                break;
-            case R.id.str2bytearray:
-              String str="ABCDEFG";
-                String strResult="";
-                for (int i=0;i<str.length();i++){
-                    strResult+=String.format("0x%02x",devTools.getDataTools().HexString2Bytes(str)[i])+',';
-                }
-                tvtest.setText("in =  "+str+'\n'+"out =   "+strResult.toUpperCase());
-                break;
+						+ '\n' + "out =   "
+						+ String.format("0x%02x", devTools.getDataTools().uniteBytes(byte1, byte2)));
+				break;
+			case R.id.str2bytearray :
+				String str = "ABCDEFG";
+				String strResult = "";
+				for (int i = 0; i < str.length(); i++) {
+					strResult += String.format("0x%02x", devTools.getDataTools().HexString2Bytes(str)[i]) + ',';
+				}
+				tvtest.setText("in =  " + str + '\n' + "out =   " + strResult.toUpperCase());
+				break;
 
 		}
 	}
