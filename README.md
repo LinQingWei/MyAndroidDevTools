@@ -18,4 +18,6 @@
     uniteBytes(byte src0, byte src1)：将两个ASCII结合成一个byte，如char a='A',char b='B'，调用方法后 返回的是 byte AB;(0xAB)
     
     HexString2Bytes(String src)：将一个Sring串转为两两结合的byte[]，如str={ABCDEF},调用方法后将会是byte[] b={0xAB,0xCD，0xEF}
+    
+     byte2StrEx(byte[] srcBytes, int type)：一个奇怪的无聊的方法，byte[]->String，用于将{0x00,0x0,0x02}转换为"00-01-02"或者"00:01:02"或者"00 01 02"或者"0x00-0x01-0x02"等等，这些类型只需要传入DataConversion.TYPE_IN_EMPTY或者其他的就可以了
  
