@@ -19,23 +19,30 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="byte[]->int[]"
+            android:text="0x10->10"
             android:checked="false"
             android:id="@+id/bytearray2intarray" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ASCII->byte"
+            android:text="E,F->0XEF"
             android:checked="false"
             android:id="@+id/ascii2byte" />
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="String->byte[]"
+            android:text="'ABCDEF'->'0XAB,0XCD,0XEF"
             android:checked="false"
             android:id="@+id/str2bytearray"
              />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="'0XAB,0XCD,0XEF'->'AB-CD-EF'"
+            android:checked="false"
+            android:id="@+id/bytearray2strex" />
     </RadioGroup>
 
 

@@ -4,6 +4,14 @@ package DevTools;
  * 数据转换类
  */
 public class DataConversion implements DataTools {
+	public final static int TYPE_IN_0X = 0;
+	public final static int TYPE_IN_SHORTLINE = 1;
+	public final static int TYPE_IN_COLON = 2;
+	public final static int TYPE_IN_0X_WITH_COMMA = 3;
+	public final static int TYPE_IN_0X_WITH_SHORTLINE = 4;
+	public final static int TYPE_IN_0X_WITH_EMPTY = 5;
+	public final static int TYPE_IN_EMPTY = 6;
+
 	/**
 	 * byte[]转int[]，这个用于将类似于0x10解析为int的10而非int的16
 	 * 
@@ -49,8 +57,7 @@ public class DataConversion implements DataTools {
 	 *
 	 * @param src
 	 *            String sample:2B44EFD9
-	 * @return
-     *            byte[] sample:byte[]{0x2B, 0x44, 0xEF, 0xD9}
+	 * @return byte[] sample:byte[]{0x2B, 0x44, 0xEF, 0xD9}
 	 */
 	public byte[] HexString2Bytes(String src) {
 		byte[] ret = new byte[src.length()];
@@ -59,6 +66,72 @@ public class DataConversion implements DataTools {
 			ret[i] = uniteBytes(tmp[i * 2], tmp[i * 2 + 1]);
 		}
 		return ret;
+	}
+
+	/**
+	 * 将byte[]数组转换为特殊格式的String
+	 * 
+	 * @param srcBytes
+	 *            sample:{0x00,0x02,0x10}
+	 * @param type
+	 *            TYPE_IN_0X/TYPE_IN_COLON/TYPE_IN_SHORTLINE
+	 * @return sample:type=TYPE_IN_COLON return:00-02-10
+	 */
+	@Override
+	public String byte2StrEx(byte[] srcBytes, int type) {
+		String str = "";
+		for (int i = 0; i < srcBytes.length; i++) {
+			switch (type) {
+				case TYPE_IN_0X :
+					str += String.format("0x%02x", srcBytes[i]);
+					break;
+				case TYPE_IN_COLON :
+					if (i == 0) {
+						str += String.format("%02x", srcBytes[i]);
+					} else {
+						str += String.format(":%02x", srcBytes[i]);
+					}
+					break;
+				case TYPE_IN_SHORTLINE :
+					if (i == 0) {
+						str += String.format("%02x", srcBytes[i]);
+					} else {
+						str += String.format("-%02x", srcBytes[i]);
+					}
+					break;
+				case TYPE_IN_0X_WITH_COMMA :
+					if (i == 0) {
+						str += String.format("0x%02x", srcBytes[i]);
+					} else {
+						str += String.format(",0x%02x", srcBytes[i]);
+					}
+					break;
+				case TYPE_IN_0X_WITH_SHORTLINE :
+					if (i == 0) {
+						str += String.format("0x%02x", srcBytes[i]);
+					} else {
+						str += String.format("-0x%02x", srcBytes[i]);
+					}
+					break;
+				case TYPE_IN_0X_WITH_EMPTY :
+					if (i == 0) {
+						str += String.format("0x%02x", srcBytes[i]);
+					} else {
+						str += String.format(" 0x%02x", srcBytes[i]);
+					}
+					break;
+				case TYPE_IN_EMPTY :
+					if (i == 0) {
+						str += String.format("%02x", srcBytes[i]);
+					} else {
+						str += String.format(" %02x", srcBytes[i]);
+					}
+					break;
+				default :
+					break;
+			}
+		}
+		return str;
 	}
 
 }
