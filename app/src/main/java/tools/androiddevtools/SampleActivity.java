@@ -5,8 +5,11 @@ import java.util.Arrays;
 import DevTools.DataConversion;
 import DevToolsFactory.DevToolsFactory;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -63,4 +66,24 @@ public class SampleActivity extends ActionBarActivity implements RadioGroup.OnCh
 				break;
 		}
 	}
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.menu_main, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		Intent intent = new Intent();
+		switch (item.getItemId()) {
+			case R.id.fileactivity :
+				intent.setClass(this, FileSampleActivity.class);
+				startActivity(intent);
+				break;
+		}
+
+		return super.onOptionsItemSelected(item);
+	}
+
 }
