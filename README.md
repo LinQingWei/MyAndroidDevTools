@@ -14,7 +14,7 @@
   
 ####getDataTools():<br> 
    数据类处理方法，主要为转换
-   getFileTools():<br>
+####getFileTools():<br>
    文件类处理方法，主要为创建，删除，复制等，目前仅实现了创建
     
 ####DataConversion():
