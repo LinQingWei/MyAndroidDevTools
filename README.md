@@ -9,10 +9,10 @@
 目前拥有的方法：
   Factory:
   
-     getData() 数据类处理方法，主要为转换
-     getFileTools() 文件类处理方法，主要为创建，删除，复制等，目前仅实现了创建
+   getData() 数据类处理方法，主要为转换
+   getFileTools() 文件类处理方法，主要为创建，删除，复制等，目前仅实现了创建
     
-     DataConversion():
+  DataConversion():
     请注意，以下关于0xXX均为用String.Format（"0x%02x",object）转换后得来，普通打印会打因为10进制
     
     byteArray2IntArray(byte[] byteArray):将byte[]转为int[]而不改变其原来的样貌，如0x10，一般来说是转成16的int，而这个方法则是将其转为10，也就是0~F原来只会被翻译为0~15，而不会进位，因此调用这个方法所得到的0x10将会被转为10同样，0X0A也会被转为10
