@@ -4,7 +4,7 @@
 
 使用方法
 ----
-   把相应java文件塞到您的工程中，以后也许会导出为jar包<br>
+   如您所见，把jar包包下载，导入，作为依赖包就可以了-V-<br>
    在用到的地方，调用前加入DevToolsFactory devTools = new DevToolsFactory();<br>
    在需要用到的地方通过调用devTools.getDataTools()等等getxxx方法来获得相应的工具类方法
  
