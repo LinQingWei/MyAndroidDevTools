@@ -36,6 +36,6 @@
       
       然后就可以调用devTool.getFileTools().createFolder(PATH)方法了
       
-      传入的PATH格式应为"A/B/C/D/E"这样该工具类会自动创建SD卡/A/B/C/D/E(如果SD卡存在)或者是 /data/data/packname/A/B/C/D/E（如果SD卡不存在）
+      传入的PATH格式应为"A/B/C/D/E"这样该工具类会自动创建 SD卡/A/B/C/D/E(如果SD卡存在)或者是 /data/data/packagename/A/B/C/D/E（如果SD卡不存在）
       当然，您也可以在当前文件夹存在的时候进行创建。
  
