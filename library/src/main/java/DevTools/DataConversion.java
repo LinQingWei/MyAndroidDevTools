@@ -14,7 +14,7 @@ public class DataConversion implements DataTools {
 
 	/**
 	 * byte[]转int[]，这个用于将类似于0x10解析为int的10而非int的16
-	 * 
+	 *
 	 * @param byteArray
 	 *            sample:0X00,0X0A,0XA0,0XFF
 	 * @return int[] sample:0,10,100,165
@@ -70,7 +70,7 @@ public class DataConversion implements DataTools {
 
 	/**
 	 * 将byte[]数组转换为特殊格式的String
-	 * 
+	 *
 	 * @param srcBytes
 	 *            sample:{0x00,0x02,0x10}
 	 * @param type

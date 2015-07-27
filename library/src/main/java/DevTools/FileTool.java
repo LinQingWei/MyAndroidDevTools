@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
-import android.graphics.Path;
 import android.os.Environment;
 
 /**
@@ -34,7 +33,7 @@ public class FileTool implements FileTools {
 	public String createFolder(String folderName) {
 		String ROOT_PATH = "";
 		// 判断SD卡
-		boolean isSdCard = Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED);
+		boolean isSdCard = Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
 		// 默认根路径
 		if (isSdCard) {
 			ROOT_PATH = Environment.getExternalStorageDirectory() + File.separator;
