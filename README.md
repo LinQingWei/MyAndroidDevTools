@@ -6,13 +6,13 @@
 ----
    把相应java文件塞到您的工程中，以后也许会导出为jar包<br>
    在用到的地方，调用前加入DevToolsFactory devTools = new DevToolsFactory();<br>
-   在需要用到的地方通过调用devTools.getData()等等getxxx方法来获得相应的工具类方法
+   在需要用到的地方通过调用devTools.getDataTools()等等getxxx方法来获得相应的工具类方法
  
 目前拥有的方法：
 ---
 ##Factory:
   
-####getData():<br> 
+####getDataTools():<br> 
    数据类处理方法，主要为转换
    getFileTools():<br>
    文件类处理方法，主要为创建，删除，复制等，目前仅实现了创建
