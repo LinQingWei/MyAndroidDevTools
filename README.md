@@ -1,12 +1,15 @@
 # MyAndroidDevTools
 // 初版，一些属性转换类型的方法
+=====
 
 使用方法
+----
    把相应java文件塞到您的工程中，以后也许会导出为jar包
    DevToolsFactory devTools = new DevToolsFactory();
    在需要用到的地方通过调用devTools.getData()等等getxxx方法来获得相应的工具类方法
  
 目前拥有的方法：
+---
   Factory:
   
    getData() 数据类处理方法，主要为转换
@@ -24,8 +27,10 @@
      byte2StrEx(byte[] srcBytes, int type)：一个奇怪的无聊的方法，byte[]->String，用于将{0x00,0x0,0x02}转换为"00-01-02"或者"00:01:02"或者"00 01 02"或者"0x00-0x01-0x02"等等，这些类型只需要传入DataConversion.TYPE_IN_EMPTY或者其他的就可以了
 
 // 2015/07/27 增加创建文件夹方法，该方法在FileTool.java下
+---
 
   使用方法
+  ---
     在您需要的activity中执行下面三个代码
     
       DevToolsFactory devTool;
