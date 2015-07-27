@@ -4,12 +4,12 @@ import DevTools.DataConversion;
 import DevTools.DataTools;
 
 /**
- * ¹¤¾ßÏä¹¤³§
+ * å·¥å…·ç®±å·¥å‚
  */
 public class DevToolsFactory {
 
     private static final DataConversion dataConversion=new DataConversion();
-    //Êı¾İÀà
+	// æ•°æ®ç±»
     public DataTools getDataTools(){
         return dataConversion;
     }

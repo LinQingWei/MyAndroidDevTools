@@ -1,7 +1,7 @@
 package DevTools;
 
 /**
- * Êı¾İ×ª»»Àà
+ * æ•°æ®è½¬æ¢ç±»
  */
 public class DataConversion implements DataTools {
 	public final static int TYPE_IN_0X = 0;
@@ -13,7 +13,7 @@ public class DataConversion implements DataTools {
 	public final static int TYPE_IN_EMPTY = 6;
 
 	/**
-	 * byte[]×ªint[]£¬Õâ¸öÓÃÓÚ½«ÀàËÆÓÚ0x10½âÎöÎªintµÄ10¶ø·ÇintµÄ16
+	 * byte[]è½¬int[]ï¼Œè¿™ä¸ªç”¨äºå°†ç±»ä¼¼äº0x10è§£æä¸ºintçš„10è€Œéintçš„16
 	 * 
 	 * @param byteArray
 	 *            sample:0X00,0X0A,0XA0,0XFF
@@ -32,10 +32,10 @@ public class DataConversion implements DataTools {
 		return temp;
 	}
 
-	// ÒÔÏÂÁ½¸ö·½·¨ÊÇ½«string×ªÎªbyte
+	// ä»¥ä¸‹ä¸¤ä¸ªæ–¹æ³•æ˜¯å°†stringè½¬ä¸ºbyte
 
 	/**
-	 * ½«Á½¸öASCII×Ö·ûºÏ³ÉÒ»¸ö×Ö½Ú£» Èç£º"EF"--> 0xEF
+	 * å°†ä¸¤ä¸ªASCIIå­—ç¬¦åˆæˆä¸€ä¸ªå­—èŠ‚ï¼› å¦‚ï¼š"EF"--> 0xEF
 	 *
 	 * @param src0
 	 *            byte sample:E
@@ -52,7 +52,7 @@ public class DataConversion implements DataTools {
 	}
 
 	/**
-	 * ½«Ö¸¶¨×Ö·û´®src£¬ÒÔÃ¿Á½¸ö×Ö·û·Ö¸î×ª»»Îª16½øÖÆĞÎÊ½ Èç£º"2B44EFD9" --> byte[]{0x2B, 0x44, 0xEF,
+	 * å°†æŒ‡å®šå­—ç¬¦ä¸²srcï¼Œä»¥æ¯ä¸¤ä¸ªå­—ç¬¦åˆ†å‰²è½¬æ¢ä¸º16è¿›åˆ¶å½¢å¼ å¦‚ï¼š"2B44EFD9" --> byte[]{0x2B, 0x44, 0xEF,
 	 * 0xD9}
 	 *
 	 * @param src
@@ -69,7 +69,7 @@ public class DataConversion implements DataTools {
 	}
 
 	/**
-	 * ½«byte[]Êı×é×ª»»ÎªÌØÊâ¸ñÊ½µÄString
+	 * å°†byte[]æ•°ç»„è½¬æ¢ä¸ºç‰¹æ®Šæ ¼å¼çš„String
 	 * 
 	 * @param srcBytes
 	 *            sample:{0x00,0x02,0x10}

@@ -58,8 +58,8 @@ public class SampleActivity extends ActionBarActivity implements RadioGroup.OnCh
 				break;
 			case R.id.bytearray2strex :
 				byte[] bytes = {0x00, 0X01, 0X02, 0X03};
-				tvtest.setText("in = " + "0x00,0x01,0x02,0x03" + '\n' + "out = "
-						+ devTools.getDataTools().byte2StrEx(bytes, DataConversion.TYPE_IN_EMPTY));
+				tvtest.setText("in = " + "{0x00,0x01,0x02,0x03}" + '\n' + "out = "
+						+ devTools.getDataTools().byte2StrEx(bytes, DataConversion.TYPE_IN_0X_WITH_SHORTLINE));
 				break;
 		}
 	}

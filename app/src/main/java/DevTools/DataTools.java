@@ -1,7 +1,7 @@
 package DevTools;
 
 /**
- * Created by Administrator on 2015/7/26.
+ * Created by razerdp on 2015/7/26. 数据类接口
  */
 public interface DataTools {
     public int[] byteArray2IntArray(byte[] byteArray);
