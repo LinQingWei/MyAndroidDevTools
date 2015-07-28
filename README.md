@@ -5,8 +5,8 @@
 使用方法
 ----
    如您所见，把jar包包下载，导入，作为依赖包就可以了-V-<br>
-   在用到的地方，调用前加入DevToolsFactory devTools = new DevToolsFactory();<br>
-   在需要用到的地方通过调用devTools.getDataTools()等等getxxx方法来获得相应的工具类方法
+   
+   在需要用到的地方通过调用DevToolsFactory.getDataTools()等等getxxx方法来获得相应的工具类方法
  
 目前拥有的方法：
 ---
@@ -46,17 +46,13 @@ byte2StrEx(byte[] srcBytes, int type)
 
   使用方法
   ---
-    在您需要的activity中执行下面三个代码
+    在您需要的activity中首先加入下面代码初始化
 ```java   
-      DevToolsFactory devTool;
-      
-      devTool = new DevToolsFactory();
-      
-      devTool.getFileTools().initialize(context);
+      DevToolsFactory.getFileTools().initialize(context);
 ```      
       然后就可以调用
 ```java      
-      devTool.getFileTools().createFolder(String rootPath,String PATH)
+      DevToolsFactory.getFileTools().createFolder(String rootPath,String PATH)
 ```      
 rootPath代表着您要创建的根路径，如果创建于SD卡上，请确保SD卡存在，否则可能会崩溃。<br>
 当传入""空字符串时，代表着默认的路径，即有SD卡的时候默认根路径为SD卡路径，无SD卡时，默认为包内路径。<br>
@@ -67,10 +63,12 @@ rootPath代表着您要创建的根路径，如果创建于SD卡上，请确保S
 //2015/7/28 增加了复制文件的方法，该方法使用如下：<br>
 ---
 ```java
-      devTool.getFileTools().copyfile(String fromPath, String toPath, Boolean rewrite)
+      DevToolsFactory.getFileTools().copyfile(String fromPath, String toPath, Boolean rewrite)
 ```
 在您需要用的地方请调用它，然后传入源文件的路径和目标文件的路径，并设置是否可以覆盖目标文件<br>
-请务必保证路径的绝对性。<br>
+请务必保证路径的绝对性以及加上文件的后缀<br>
+例如fromPath="sdcard/xxx/xxx.txt"<br>
+同样，目标文件例子：toPath="sdcard/xxx/xxx.txt"<br>
 当rewrite为true时，若目标文件存在，则会覆盖目标文件。<br>
 当rewrite为false时，若目标文件存在，则会在原目标文件的末尾加上-new。<br>
 使用前请务必加上必要的权限。<br>
