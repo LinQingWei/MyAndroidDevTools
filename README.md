@@ -65,6 +65,7 @@ rootPath代表着您要创建的根路径，如果创建于SD卡上，请确保S
 当然，您也可以在当前文件夹存在的时候进行创建。
 
 //2015/7/28 增加了复制文件的方法，该方法使用如下：<br>
+---
 ```java
       devTool.getFileTools().copyfile(String fromPath, String toPath, Boolean rewrite)
 ```
