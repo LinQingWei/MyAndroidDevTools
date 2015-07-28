@@ -70,7 +70,9 @@ rootPath代表着您要创建的根路径，如果创建于SD卡上，请确保S
       devTool.getFileTools().copyfile(String fromPath, String toPath, Boolean rewrite)
 ```
 在您需要用的地方请调用它，然后传入源文件的路径和目标文件的路径，并设置是否可以覆盖目标文件<br>
-请务必保证路径的绝对性。<br>
+请务必保证路径的绝对性以及加上文件的后缀<br>
+例如fromPath="sdcard/xxx/xxx.txt"<br>
+同样，目标文件例子：toPath="sdcard/xxx/xxx.txt"<br>
 当rewrite为true时，若目标文件存在，则会覆盖目标文件。<br>
 当rewrite为false时，若目标文件存在，则会在原目标文件的末尾加上-new。<br>
 使用前请务必加上必要的权限。<br>
