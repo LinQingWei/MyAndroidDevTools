@@ -58,7 +58,7 @@ byte2StrEx(byte[] srcBytes, int type)
 ```java      
       devTool.getFileTools().createFolder(String rootPath,String PATH)
 ```      
-      rootPath代表着您要创建的根路径，如果创建于SD卡上，请确保SD卡存在，否则可能会崩溃。当传入""空字符串时，代表着默认的路径，即有SD卡的时候默认根路径为SD卡路径，无SD卡时，默认为包内路径。
+      rootPath代表着您要创建的根路径，如果创建于SD卡上，请确保SD卡存在，否则可能会崩溃。当传入""空字符串时，代表着默认的路径，即有SD卡的时候默认根路径为SD卡路径，无SD卡时，默认为包内路径。而且，在根路径的最后请加上"/"，如 "/data/data/com.xxx.xxx/xxx/"<br>
       传入的PATH格式应为"A/B/C/D/E"这样该工具类会自动创建 SD卡/A/B/C/D/E(如果SD卡存在)或者是 /data/data/packagename/A/B/C/D/E（如果SD卡不存在）
       当然，您也可以在当前文件夹存在的时候进行创建。
  
