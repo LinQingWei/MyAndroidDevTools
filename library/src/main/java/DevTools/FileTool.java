@@ -1,6 +1,11 @@
 package DevTools;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -83,6 +88,84 @@ public class FileTool implements FileTools {
 		}
 		return str;
 
+	}
+
+	/**
+	 * @param fromFile
+	 *            源文件路径，如"/sdcard/xxx/xxx.txt"
+	 * @param toFile
+	 *            目标文件路径，如"xxx/xxx/xxx.txt"
+	 * @param rewrite
+	 *            可否重写，如果可以，则会覆盖文件.
+	 * @return String信息
+	 * @throws IOException
+	 *             异常处理
+	 */
+	public String copyfile(String fromFile, String toFile, Boolean rewrite) throws IOException {
+		File from = new File(fromFile);
+		File to = new File(toFile);
+		if (!from.isFile()) {
+			return "错误，请注意填写路径";
+		}
+		if (!from.exists()) {
+			return "错误，文件不存在，请注意填写路径";
+		}
+		if (!from.canRead()) {
+			return "错误，文件不可读，请注意权限";
+		}
+		// 判断目标路径的父文件夹是否存在，不存在就建一个
+		if (!to.getParentFile().exists()) {
+			to.getParentFile().mkdir();
+		}
+		// 判断目标文件是否存在以及是否可以复写，如果都满足，则删除原来的目标文件，否则，则在原文件后面加上-new
+		if (to.exists() && rewrite) {
+			to.delete();
+		} else if (to.exists() && !rewrite) {
+			String newToFile = getFileNameNoEx(toFile) + "-new." + getExtensionName(toFile);
+			File newFile = new File(newToFile);
+			to = newFile;
+		}
+
+		BufferedInputStream fromInPut = null;
+		BufferedOutputStream toOutPut = null;
+		// 以下为为复制
+		try {
+			fromInPut = new BufferedInputStream(new FileInputStream(from));
+			toOutPut = new BufferedOutputStream(new FileOutputStream(to));
+			int reader = 0;
+			int bytesCopied = 0;
+			while ((reader = fromInPut.read()) != -1) {
+				toOutPut.write((byte) reader);
+				bytesCopied++;
+			}
+			return "成功复制文件，一共复制了:" + bytesCopied + "bytes" + '\n' + "源路径：" + from.getAbsolutePath() + '\n' + "目标路径："
+					+ to.getAbsolutePath();
+		} finally {
+			fromInPut.close();
+			toOutPut.close();
+		}
+
+	}
+
+	// 获取后缀名
+	private static String getExtensionName(String filename) {
+		if ((filename != null) && (filename.length() > 0)) {
+			int dot = filename.lastIndexOf('.');
+			if ((dot > -1) && (dot < (filename.length() - 1))) {
+				return filename.substring(dot + 1);
+			}
+		}
+		return filename;
+	}
+	// 获取无扩展名的文件名
+	private static String getFileNameNoEx(String filename) {
+		if ((filename != null) && (filename.length() > 0)) {
+			int dot = filename.lastIndexOf('.');
+			if ((dot > -1) && (dot < (filename.length()))) {
+				return filename.substring(0, dot);
+			}
+		}
+		return filename;
 	}
 
 }

@@ -1,5 +1,8 @@
 package tools.androiddevtools;
 
+import java.io.File;
+import java.io.IOException;
+
 import DevToolsFactory.DevToolsFactory;
 
 import android.content.Intent;
@@ -11,10 +14,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class FileSampleActivity extends ActionBarActivity implements View.OnClickListener {
 
 	private Button createFolder;
+	private Button copyFiles;
 	private TextView tvFile;
 	DevToolsFactory devTool;
 
@@ -26,6 +31,7 @@ public class FileSampleActivity extends ActionBarActivity implements View.OnClic
 		devTool = new DevToolsFactory();
 		devTool.getFileTools().initialize(this);
 		createFolder.setOnClickListener(this);
+		copyFiles.setOnClickListener(this);
 
 	}
 
@@ -35,6 +41,24 @@ public class FileSampleActivity extends ActionBarActivity implements View.OnClic
 		switch (v.getId()) {
 			case R.id.createfolder :
 				tvFile.setText(devTool.getFileTools().createFolder("/data/data/" + getPackageName(), "t1/t2/t3"));
+				break;
+			case R.id.copyfiles :
+				String path = Environment.getExternalStorageDirectory() + "/copyTest1.txt";
+				String toPath = Environment.getExternalStorageDirectory() + "/copytest/copiedTest2.txt";
+				File file = new File(path);
+				try {
+					if (!file.exists()) {
+						file.createNewFile();
+					}
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				try {
+					tvFile.setText(devTool.getFileTools().copyfile(path, toPath, true));
+				} catch (IOException e) {
+					Toast.makeText(FileSampleActivity.this, "复制失败", Toast.LENGTH_LONG).show();
+					e.printStackTrace();
+				}
 				break;
 		}
 
@@ -55,6 +79,7 @@ public class FileSampleActivity extends ActionBarActivity implements View.OnClic
 				intent.setClass(this, SampleActivity.class);
 				startActivity(intent);
 				break;
+
 		}
 
 		return super.onOptionsItemSelected(item);
@@ -63,6 +88,7 @@ public class FileSampleActivity extends ActionBarActivity implements View.OnClic
 	private void initialize() {
 
 		createFolder = (Button) findViewById(R.id.createfolder);
+		copyFiles = (Button) findViewById(R.id.copyfiles);
 		tvFile = (TextView) findViewById(R.id.tv_file);
 	}
 
