@@ -7,5 +7,5 @@ import android.content.Context;
  */
 public interface FileTools {
 	public void initialize(Context context);
-	public String createFolder(String folderName);
+	public String createFolder(String rootPaht, String folderName);
 }

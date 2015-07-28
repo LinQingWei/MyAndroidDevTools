@@ -4,6 +4,7 @@ import DevToolsFactory.DevToolsFactory;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,7 +34,7 @@ public class FileSampleActivity extends ActionBarActivity implements View.OnClic
 	public void onClick(View v) {
 		switch (v.getId()) {
 			case R.id.createfolder :
-				tvFile.setText(devTool.getFileTools().createFolder("t1/t2/t3"));
+				tvFile.setText(devTool.getFileTools().createFolder("/data/data/" + getPackageName(), "t1/t2/t3"));
 				break;
 		}
 

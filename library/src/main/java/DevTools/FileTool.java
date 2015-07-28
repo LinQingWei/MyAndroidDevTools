@@ -30,15 +30,23 @@ public class FileTool implements FileTools {
 	 * @return 创建好的目录的路径
 	 */
 	@Override
-	public String createFolder(String folderName) {
+	public String createFolder(String rootPath, String folderName) {
 		String ROOT_PATH = "";
 		// 判断SD卡
 		boolean isSdCard = Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
 		// 默认根路径
-		if (isSdCard) {
-			ROOT_PATH = Environment.getExternalStorageDirectory() + File.separator;
+		if (!rootPath.equals("")) {
+			if (rootPath.valueOf(rootPath.length()).equals("/")) {
+				ROOT_PATH = rootPath;
+			} else {
+				ROOT_PATH = rootPath + "/";
+			}
 		} else {
-			ROOT_PATH = "/data/data/" + mContext.getPackageName() + "/";
+			if (isSdCard) {
+				ROOT_PATH = Environment.getExternalStorageDirectory() + File.separator;
+			} else {
+				ROOT_PATH = "/data/data/" + mContext.getPackageName() + "/";
+			}
 		}
 		// 将String路径根据“/”抽取
 		String[] PATHS = folderName.split("/");
