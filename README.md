@@ -35,7 +35,11 @@
 ```java
      byte2StrEx(byte[] srcBytes, int type)
 ```     
-     一个奇怪的无聊的方法，byte[]->String，用于将{0x00,0x0,0x02}转换为"00-01-02"或者"00:01:02"或者"00 01 02"或者"0x00-0x01-0x02"等等，这些类型只需要传入DataConversion.TYPE_IN_EMPTY或者其他的就可以了
+     一个奇怪的无聊的方法:<br>
+```java
+byte2StrEx(byte[] srcBytes, int type)
+```
+     byte[]->String，用于将{0x00,0x0,0x02}转换为"00-01-02"或者"00:01:02"或者"00 01 02"或者"0x00-0x01-0x02"等等，这些类型只需要传入DataConversion.TYPE_IN_EMPTY或者其他的就可以了
 
 // 2015/07/27 增加创建文件夹方法，该方法在FileTool.java下
 ---
