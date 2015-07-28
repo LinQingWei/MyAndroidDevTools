@@ -62,5 +62,17 @@ rootPath代表着您要创建的根路径，如果创建于SD卡上，请确保S
 当传入""空字符串时，代表着默认的路径，即有SD卡的时候默认根路径为SD卡路径，无SD卡时，默认为包内路径。<br>
 
 传入的PATH格式应为"A/B/C/D/E"这样该工具类会自动创建 SD卡/A/B/C/D/E(如果SD卡存在)或者是 /data/data/packagename/A/B/C/D/E（如果SD卡不存在）
-      当然，您也可以在当前文件夹存在的时候进行创建。
+当然，您也可以在当前文件夹存在的时候进行创建。
+
+//2015/7/28 增加了复制文件的方法，该方法使用如下：<br>
+```java
+      devTool.getFileTools().copyfile(String fromPath, String toPath, Boolean rewrite)
+```
+在您需要用的地方请调用它，然后传入源文件的路径和目标文件的路径，并设置是否可以覆盖目标文件<br>
+请务必保证路径的绝对性。<br>
+当rewrite为true时，若目标文件存在，则会覆盖目标文件。<br>
+当rewrite为false时，若目标文件存在，则会在原目标文件的末尾加上-new。<br>
+使用前请务必加上必要的权限。<br>
+以上......
+
  
