@@ -11,7 +11,7 @@
 目前拥有的方法：
 ---
 ##Factory:<br>
-   使用的时候只需要new这个对象，其他不建议new
+   直接调用它里面的getXXX()就好了-V-如 DevToolsFactory.getFileTools().initialize(context);
 ####getDataTools():<br> 
    数据类处理方法，主要为转换
 ####getFileTools():<br>
