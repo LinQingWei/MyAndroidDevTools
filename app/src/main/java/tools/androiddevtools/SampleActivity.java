@@ -79,6 +79,10 @@ public class SampleActivity extends ActionBarActivity implements RadioGroup.OnCh
 				intent.setClass(this, FileSampleActivity.class);
 				startActivity(intent);
 				break;
+			case R.id.main_toview :
+				intent.setClass(this, ViewSampleActivity.class);
+				startActivity(intent);
+				break;
 		}
 
 		return super.onOptionsItemSelected(item);

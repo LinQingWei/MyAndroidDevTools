@@ -6,5 +6,15 @@
         android:id="@+id/fileactivity"
         android:orderInCategory="100"
         android:title="前往文件处理界面"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/main_toview"
+        android:orderInCategory="101"
+        android:title="前往view处理界面"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/main_tobitmap"
+        android:orderInCategory="102"
+        android:title="前往bitmap处理界面"
+        app:showAsAction="never" />
 </menu>

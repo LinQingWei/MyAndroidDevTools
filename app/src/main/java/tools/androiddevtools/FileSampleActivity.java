@@ -79,6 +79,10 @@ public class FileSampleActivity extends ActionBarActivity implements View.OnClic
 				intent.setClass(this, SampleActivity.class);
 				startActivity(intent);
 				break;
+			case R.id.file_toview :
+				intent.setClass(this, ViewSampleActivity.class);
+				startActivity(intent);
+				break;
 
 		}
 

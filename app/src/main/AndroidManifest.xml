@@ -21,7 +21,13 @@
         </activity>
         <activity
             android:name=".FileSampleActivity"
-            android:label="@string/title_activity_file_sample">
+            android:label="@string/title_activity_file_sample"></activity>
+        <activity
+            android:name=".BitmapSampleActivity"
+            android:label="@string/title_activity_bitmap_sample"></activity>
+        <activity
+            android:name=".ViewSampleActivity"
+            android:label="@string/title_activity_view_sample">
         </activity>
     </application>
 

@@ -1,0 +1,51 @@
+<RelativeLayout
+    android:id="@+id/layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="tools.androiddevtools.ViewSampleActivity">
+
+    <ImageView
+        android:id="@+id/view_imageview"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/test" />
+
+    <Button
+        android:id="@+id/btn_getround"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view_imageview"
+        android:text="得到圆形图片" />
+
+    <EditText
+        android:id="@+id/ed_radius"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/btn_getround"
+        android:layout_toRightOf="@id/btn_getround"
+        android:hint="请输入半径"
+        android:inputType="number"
+        android:paddingLeft="3dp" />
+
+
+    <TextView
+        android:id="@+id/view_tx"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/view_tx"
+        android:paddingBottom="5dp"
+        android:text="点击图片得到位置，然后设置半径，最后点击按钮" />
+
+</RelativeLayout>
