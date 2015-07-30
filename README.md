@@ -115,7 +115,7 @@ rootPath代表着您要创建的根路径，如果创建于SD卡上，请确保S
 	public int sp2px(Context context, float spValue);// 将sp值转换为px值，保证文字大小不变
 	public int getStateBarHeight(Activity activity);//获取当前Activity的状态栏高度
 	public int getTitleBarHeight(Activity activity);//获取当前Activity的标题栏高度
-	public int[] getScreenWH(Activity activity);//获取当前屏幕宽高（px）
+	public int[] getScreenWH(Activity activity);//获取当前屏幕宽高（px）,width=int[0],height=int[1]
 	public Bitmap takeScreenShot(Activity activity);//截取当前屏幕图片，返回Bitmap
 	public Bitmap getBitmapRound(Activity activity, int centerX, int centerY, int radius);//截取以x,y为中心，半径为radius的圆形图片
 ```
