@@ -8,9 +8,66 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="tools.androiddevtools.BitmapSampleActivity">
 
+    <ImageView
+        android:src="@drawable/matte_with_alpha"
+        android:id="@+id/bitmap_mask"
+        android:layout_width="150dp"
+        android:layout_height="150dp" />
+
+    <ImageView
+        android:src="@drawable/test"
+        android:scaleType="fitXY"
+        android:layout_alignParentRight="true"
+        android:id="@+id/bitmap_bg"
+        android:layout_width="150dp"
+        android:layout_height="150dp" />
     <TextView
-        android:text="@string/hello_world"
-        android:layout_width="wrap_content"
+        android:layout_below="@id/bitmap_mask"
+        android:text="mask层"
+        android:gravity="center"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView" />
+
+    <TextView
+        android:layout_alignLeft="@id/bitmap_bg"
+        android:layout_below="@id/bitmap_bg"
+        android:text="bg层"
+        android:gravity="center"
+        android:layout_width="150dp"
         android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/bitmap_compose"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:layout_alignLeft="@id/bitmap_compose"
+        android:layout_above="@id/bitmap_compose"
+        android:text="合成层"
+        android:gravity="center"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn_compose_without_gadient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="合成无渐变mask" />
+
+    <Button
+        android:id="@+id/btn_compose_gadient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/btn_compose_without_gadient"
+        android:text="合成有渐变mask" />
+
 
 </RelativeLayout>

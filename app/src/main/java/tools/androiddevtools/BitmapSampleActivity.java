@@ -1,16 +1,93 @@
 package tools.androiddevtools;
 
-import android.support.v7.app.ActionBarActivity;
+import DevToolsFactory.DevToolsFactory;
+
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
 
-public class BitmapSampleActivity extends ActionBarActivity {
+public class BitmapSampleActivity extends ActionBarActivity implements View.OnClickListener {
+
+	private ImageView bitmapMask;
+	private ImageView bitmapBg;
+	private ImageView bitmapCompose;
+	private Button btn_without_gradient;
+	private Button btn_with_gradient;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_bitmap_sample);
+		initialize();
+		btn_with_gradient.setOnClickListener(this);
+		btn_without_gradient.setOnClickListener(this);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		int id = item.getItemId();
+		Intent intent = new Intent();
+		switch (id) {
+			case R.id.bitmap_tomain :
+				intent.setClass(this, SampleActivity.class);
+				startActivity(intent);
+				break;
+			case R.id.bitmap_tofile :
+				intent.setClass(this, FileSampleActivity.class);
+				startActivity(intent);
+				break;
+			case R.id.bitmap_toview :
+				intent.setClass(this, ViewSampleActivity.class);
+				startActivity(intent);
+				break;
+			default :
+				break;
+		}
+
+		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void onClick(View v) {
+		Bitmap bgPic = BitmapFactory.decodeResource(getResources(), R.drawable.test);
+		switch (v.getId()) {
+			case R.id.btn_compose_without_gadient :
+				Bitmap maskPic = BitmapFactory.decodeResource(getResources(), R.drawable.matte_with_alpha);
+				bitmapMask.setImageBitmap(maskPic);
+				Bitmap composeBitmap = null;
+				composeBitmap = DevToolsFactory.getBitmapTools().createBitmapWithAlphaMatte(getApplicationContext(),
+						maskPic, bgPic, true);
+
+				if (composeBitmap != null) {
+					bitmapCompose.setImageBitmap(composeBitmap);
+				} else {
+					Toast.makeText(getApplicationContext(), "error", Toast.LENGTH_LONG).show();
+				}
+
+				break;
+			case R.id.btn_compose_gadient :
+				Bitmap maskPic_withGradient = BitmapFactory.decodeResource(getResources(),
+						R.drawable.matte_without_alpha);
+				bitmapMask.setImageBitmap(maskPic_withGradient);
+				Bitmap composeWithGradient = null;
+				composeWithGradient = DevToolsFactory.getBitmapTools()
+						.createBitmapWithAlphaMatte(getApplicationContext(), maskPic_withGradient, bgPic, false);
+				if (composeWithGradient != null) {
+					bitmapCompose.setImageBitmap(composeWithGradient);
+				} else {
+					Toast.makeText(getApplicationContext(), "error", Toast.LENGTH_LONG).show();
+				}
+				break;
+		}
+
 	}
 
 	@Override
@@ -20,18 +97,13 @@ public class BitmapSampleActivity extends ActionBarActivity {
 		return true;
 	}
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
+	private void initialize() {
 
-		// noinspection SimplifiableIfStatement
-		if (id == R.id.action_settings) {
-			return true;
-		}
-
-		return super.onOptionsItemSelected(item);
+		bitmapMask = (ImageView) findViewById(R.id.bitmap_mask);
+		bitmapBg = (ImageView) findViewById(R.id.bitmap_bg);
+		bitmapCompose = (ImageView) findViewById(R.id.bitmap_compose);
+		btn_without_gradient = (Button) findViewById(R.id.btn_compose_without_gadient);
+		btn_with_gradient = (Button) findViewById(R.id.btn_compose_gadient);
 	}
+
 }

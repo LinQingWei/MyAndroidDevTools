@@ -1,5 +1,7 @@
 package DevTools;
 
+import DevToolsFactory.DevToolsFactory;
+
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -203,4 +205,5 @@ public class ViewTool implements ViewTools {
 		bitmap.recycle();
 		return output;
 	}
+
 }

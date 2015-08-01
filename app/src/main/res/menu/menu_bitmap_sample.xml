@@ -3,8 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="tools.androiddevtools.BitmapSampleActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/bitmap_tomain"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="前往数据处理界面"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/bitmap_toview"
+        android:orderInCategory="101"
+        android:title="前往view处理界面"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/bitmap_tofile"
+        android:orderInCategory="102"
+        android:title="前往文件处理界面"
         app:showAsAction="never" />
 </menu>

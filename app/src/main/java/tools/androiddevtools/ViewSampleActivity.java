@@ -73,7 +73,6 @@ public class ViewSampleActivity extends ActionBarActivity implements View.OnClic
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
-
 				} else {
 					Toast.makeText(getApplicationContext(), "请输入半径", Toast.LENGTH_SHORT).show();
 				}
@@ -102,6 +101,10 @@ public class ViewSampleActivity extends ActionBarActivity implements View.OnClic
 				break;
 			case R.id.view_tofile :
 				intent.setClass(this, FileSampleActivity.class);
+				startActivity(intent);
+				break;
+			case R.id.file_tobitmap :
+				intent.setClass(this, BitmapSampleActivity.class);
 				startActivity(intent);
 				break;
 			default :

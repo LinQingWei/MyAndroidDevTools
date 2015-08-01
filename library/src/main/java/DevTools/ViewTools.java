@@ -94,4 +94,14 @@ public interface ViewTools {
 	 * @return 圆形bitmap，当x,y中心小于0，则返回null
 	 */
 	public Bitmap getBitmapRound(Activity activity, int centerX, int centerY, int radius);
+
+	/**
+	 * 把图片转成圆形
+	 * 
+	 * @param bitmap
+	 *            需要转形的图片
+	 * @return 转成圆形后的图片
+	 */
+	public Bitmap toRoundBitmap(Bitmap bitmap);
+
 }

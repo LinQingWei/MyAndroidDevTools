@@ -1,8 +1,10 @@
 package DevTools;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 
 import java.io.IOException;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by Administrator on 2015/7/30. bitmap图像工具类
@@ -34,4 +36,18 @@ public interface BitmapTools {
 	 *             异常捕获
 	 */
 	public void saveBitmap(Bitmap bm, String path, String picName) throws IOException;
+	/**
+	 * 将两个bitmap通过蒙板合成为一个
+	 * 
+	 * @param context
+	 *            Context
+	 * @param maskPic
+	 *            前景Bitmap(即蒙板)
+	 * @param bgPic
+	 *            背景Bitmap（即要显示的内容）
+	 * @param hasAlpha
+	 *            蒙板是否含有通道
+	 * @return 合成后的Bitmap
+	 */
+	public Bitmap createBitmapWithAlphaMatte(Context context, Bitmap maskPic, Bitmap bgPic, boolean hasAlpha);
 }
