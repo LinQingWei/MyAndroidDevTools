@@ -97,8 +97,8 @@ takeScreenShot方法主要是利用view的cache来获取当前屏幕图片，返
     
    ---
 //2015/08/01 增加了通过蒙板合成前景和背景为一张图的方法createBitmapWithAlphaMatte(Context context, Bitmap maskPic, Bitmap bgPic, boolean hasAlpha)<br>
-ps:暂时来说我就这么有更新就写更新日志吧，以后有空再好好的整理这个README.....见谅
-------
+---
+####ps:暂时来说我就这么有更新就写更新日志吧，以后有空再好好的整理这个README.....见谅
 ```java
     DevToolsFactory.getBitmapTools().createBitmapWithAlphaMatte(Context context, Bitmap maskPic, Bitmap bgPic, boolean hasAlpha)
 ```
