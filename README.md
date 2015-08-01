@@ -74,4 +74,67 @@ rootPath代表着您要创建的根路径，如果创建于SD卡上，请确保S
 使用前请务必加上必要的权限。<br>
 以上......
 
- 
+<br>
+//2015/07/30 增加了BitmapTools和ViewTools<br>
+------
+使用方法
+---
+如之前一样，直接调用<br>
+```java
+   DevToolsFactory.getBitmapTools()
+或者
+   DevToolsFactory.getViewTools()
+```
+里面的方法吧-V- <br>
+###getBitmapTools()：<br>
+该方法含有
+```java
+	public Bitmap zoomBitmap(Bitmap bitmap, int width, int height); //缩放bitmap
+```
+和<br>
+```java
+	public void saveBitmap(Bitmap bm, String path, String picName) throws IOException;//保存bit到本地（jpg）
+```
+####①
+```java
+	public Bitmap zoomBitmap(Bitmap bitmap, int width, int height); 
+```
+该方法传递入一个bitmap对象，以及期望的宽高，方法会按照期望宽高/原宽高进行比例缩放，然后返回bitmap对象<br>
+####②：
+```java
+	public void saveBitmap(Bitmap bm, String path, String picName) throws IOException;//保存bit到本地（jpg）
+```
+该方法传递bitmap对象，path传入需要存放的路径，picname则是传入保存的文件地址，请务必加上后缀名，避免二次更名操作
+
+###getViewTools()：<br>
+该方法含有
+```java
+   public int px2dip(Context context, float pxValue);//将px值转换为dip或dp值，保证尺寸大小不变
+   public int dip2px(Context context, float dipValue);//将dip或dp值转换为px值，保证尺寸大小不变
+	public int px2sp(Context context, float pxValue);//将px值转换为sp值，保证文字大小不变
+	public int sp2px(Context context, float spValue);// 将sp值转换为px值，保证文字大小不变
+	public int getStateBarHeight(Activity activity);//获取当前Activity的状态栏高度
+	public int getTitleBarHeight(Activity activity);//获取当前Activity的标题栏高度
+	public int[] getScreenWH(Activity activity);//获取当前屏幕宽高（px）,width=int[0],height=int[1]
+	public Bitmap takeScreenShot(Activity activity);//截取当前屏幕图片，返回Bitmap
+	public Bitmap getBitmapRound(Activity activity, int centerX, int centerY, int radius);//截取以x,y为中心，半径为radius的圆形图片
+```
+其中前面7个基本都是网上通用的方法，这里就不解释如何使用了<br>
+####①
+```java
+	public Bitmap takeScreenShot(Activity activity);//截取当前屏幕图片，返回Bitmap
+```
+该方法主要是利用view的cache来获取当前屏幕图片，返回的是bitmap，可以结合上面的saveBitmap来保存到本地哦，请务必注意，传入的参数是Activity，请勿传入getApplicationContext()<br>
+####②
+```
+   public Bitmap getBitmapRound(Activity activity, int centerX, int centerY, int radius);//截取以x,y为中心，半径为radius的圆形图片
+```
+该方法用于截取指定位置，指定半径的view，返回的是bitmap，可以结合上面的savebitmap来保存到本地，详情见demo。<br>
+该方法传入的几个参数分别是：<br>
+#####Activity<br>
+#####int x:您需要裁剪的圆心的x坐标<br>
+#####int y:您需要裁剪的圆心的y坐标<br>
+#####int radius:您需要裁剪的圆的半径<br>
+####当x或者y大于半径（请注意y是包含有状态栏的高度），执行方法后会返回一个bitmap，可以结合savebitmap来保存到本地，若x或者y小于半径，则返回null，即无法裁剪出一个完整的圆，所以使用的时候请务必判断方法返回值是否为null，否则可能会异常而挂掉哦，详情见demo<br>
+   以上。。。。
+
