@@ -1,5 +1,5 @@
 # MyAndroidDevTools
-// 这里是一些工具类，虽然现在的工具不多，但我会坚持更新的，另外，我是个注视狂魔，如果看源码因为注释而打扰到您，这里我表示非常的抱歉，真的对不起- -
+// 这里是一些工具类，虽然现在的工具不多，但我会坚持更新的，另外，我是个注释狂魔，如果看源码因为注释而打扰到您，这里我表示非常的抱歉，真的对不起- -
 =====
 
 使用方法
@@ -15,10 +15,11 @@
 ####getDataTools():<br> 
    数据类处理方法，主要为转换
 ####getFileTools():<br>
-   文件类处理方法，主要为创建，删除，复制等，目前仅实现了创建<br>
-##其他的类:<br>
-   `请勿new这些类`
-######DataConversion():
+   文件类处理方法，主要为创建，复制等<br>
+####getBitmapTools():<br>
+   目前拥有的方法是缩放图片，合成蒙板图片。<br>
+   
+##关于数型转换的方法的说明:<br>
  请注意，以下关于0xXX均为用String.Format（"0x%02x",object）转换后得来，普通打印会打因为10进制<br>
 ```java    
     byteArray2IntArray(byte[] byteArray)
@@ -138,6 +139,7 @@ rootPath代表着您要创建的根路径，如果创建于SD卡上，请确保S
 ####当x或者y大于半径（请注意y是包含有状态栏的高度），执行方法后会返回一个bitmap，可以结合savebitmap来保存到本地，若x或者y小于半径，则返回null，即无法裁剪出一个完整的圆，所以使用的时候请务必判断方法返回值是否为null，否则可能会异常而挂掉哦，详情见demo<br>
    以上。。。。<br>
 //2015/08/01 增加了通过蒙板合成前景和背景为一张图的方法createBitmapWithAlphaMatte(Context context, Bitmap maskPic, Bitmap bgPic, boolean hasAlpha)<br>
+ps:暂时来说我就这么有更新就写更新日志吧，以后有空再好好的整理这个README.....见谅
 ------
 使用方法：
 ---
