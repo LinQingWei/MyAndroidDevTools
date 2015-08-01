@@ -136,5 +136,23 @@ rootPath代表着您要创建的根路径，如果创建于SD卡上，请确保S
 #####int y:您需要裁剪的圆心的y坐标<br>
 #####int radius:您需要裁剪的圆的半径<br>
 ####当x或者y大于半径（请注意y是包含有状态栏的高度），执行方法后会返回一个bitmap，可以结合savebitmap来保存到本地，若x或者y小于半径，则返回null，即无法裁剪出一个完整的圆，所以使用的时候请务必判断方法返回值是否为null，否则可能会异常而挂掉哦，详情见demo<br>
-   以上。。。。
+   以上。。。。<br>
+//2015/08/01 增加了通过蒙板合成前景和背景为一张图的方法createBitmapWithAlphaMatte(Context context, Bitmap maskPic, Bitmap bgPic, boolean hasAlpha)<br>
+------
+使用方法：
+---
+跟以前一样，尽情的调用<br>
+```java
+    DevToolsFactory.getBitmapTools().createBitmapWithAlphaMatte(Context context, Bitmap maskPic, Bitmap bgPic, boolean hasAlpha)
+```
+因为这个方法是对图片的像素进行操作，所以建议您将方法放到异步线程里面做，避免阻塞UI线程。Demo因为为了偷懒，所以就没有放到子线程里面做。。。。<br>
+关于这个方法的参数如下：<br>
+```java
+    Context context:上下文对象
+    Bitmap maskPic:传入蒙板层的Bitmap
+    Bitmap bgPic:传入背景层的Bitmap
+    boolean hasAlpha:蒙板层是否含有Alpha(透明度通道)，请注意这个，一定要区分好哦，一般而言，jpg不含alpha通道的，所以对于jpg请选择false，对于png，请注意看是否有alpha通道，辨别很简单，请右键您的图片，查看属性是否>24深度，因为ARGB=4*8=32位，而RGB=3*8=24位，所以请看准是否含有alpha通道哦
+```
+方法返回的是一个合成好的bitmap，如果传入的bitmap为空，返回是空的哦，所以请判断一下是否返回空值，详情请看demo<br>
+以上。。。。
 
