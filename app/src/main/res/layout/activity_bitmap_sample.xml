@@ -54,20 +54,20 @@
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/btn_compose_without_gadient"
+        android:id="@+id/btn_compose_without_alpha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:text="合成无渐变mask" />
+        android:text="合成无Alpha matte" />
 
     <Button
-        android:id="@+id/btn_compose_gadient"
+        android:id="@+id/btn_compose_alpha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@id/btn_compose_without_gadient"
-        android:text="合成有渐变mask" />
+        android:layout_toRightOf="@id/btn_compose_without_alpha"
+        android:text="合成有Alpha matte" />
 
 
 </RelativeLayout>

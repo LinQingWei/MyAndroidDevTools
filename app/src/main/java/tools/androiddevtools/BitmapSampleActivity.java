@@ -59,7 +59,7 @@ public class BitmapSampleActivity extends ActionBarActivity implements View.OnCl
 	public void onClick(View v) {
 		Bitmap bgPic = BitmapFactory.decodeResource(getResources(), R.drawable.test);
 		switch (v.getId()) {
-			case R.id.btn_compose_without_gadient :
+			case R.id.btn_compose_without_alpha :
 				Bitmap maskPic = BitmapFactory.decodeResource(getResources(), R.drawable.matte_with_alpha);
 				bitmapMask.setImageBitmap(maskPic);
 				Bitmap composeBitmap = null;
@@ -73,7 +73,7 @@ public class BitmapSampleActivity extends ActionBarActivity implements View.OnCl
 				}
 
 				break;
-			case R.id.btn_compose_gadient :
+			case R.id.btn_compose_alpha :
 				Bitmap maskPic_withGradient = BitmapFactory.decodeResource(getResources(),
 						R.drawable.matte_without_alpha);
 				bitmapMask.setImageBitmap(maskPic_withGradient);
