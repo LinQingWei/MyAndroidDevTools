@@ -19,16 +19,16 @@ public class BitmapSampleActivity extends ActionBarActivity implements View.OnCl
 	private ImageView bitmapMask;
 	private ImageView bitmapBg;
 	private ImageView bitmapCompose;
-	private Button btn_without_gradient;
-	private Button btn_with_gradient;
+	private Button btn_without_alpha;
+	private Button btn_with_alpha;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_bitmap_sample);
 		initialize();
-		btn_with_gradient.setOnClickListener(this);
-		btn_without_gradient.setOnClickListener(this);
+		btn_with_alpha.setOnClickListener(this);
+		btn_without_alpha.setOnClickListener(this);
 	}
 
 	@Override
@@ -102,8 +102,8 @@ public class BitmapSampleActivity extends ActionBarActivity implements View.OnCl
 		bitmapMask = (ImageView) findViewById(R.id.bitmap_mask);
 		bitmapBg = (ImageView) findViewById(R.id.bitmap_bg);
 		bitmapCompose = (ImageView) findViewById(R.id.bitmap_compose);
-		btn_without_gradient = (Button) findViewById(R.id.btn_compose_without_gadient);
-		btn_with_gradient = (Button) findViewById(R.id.btn_compose_gadient);
+		btn_without_alpha = (Button) findViewById(R.id.btn_compose_without_alpha);
+		btn_with_alpha = (Button) findViewById(R.id.btn_compose_alpha);
 	}
 
 }

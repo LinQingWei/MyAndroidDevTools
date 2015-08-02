@@ -44,10 +44,6 @@ public class BitmapTool implements BitmapTools {
 			height = maskPic.getHeight();
 			zoomedBgBitmap = Bitmap.createScaledBitmap(bgPic, width, height, false);
 		}
-		int edgeColor = maskPic.getPixel(1, 1);
-		int centerColor = maskPic.getPixel(width / 2, height / 2);
-		Log.d("TAG", "edgeColor = " + Integer.toHexString(edgeColor) + ", centerColor = "
-				+ Integer.toHexString(centerColor));
 		// 获取两者的像素
 		int[] mskPx = new int[width * height];
 		int[] bgPx = new int[width * height];
