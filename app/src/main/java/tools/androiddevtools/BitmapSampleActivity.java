@@ -71,7 +71,7 @@ public class BitmapSampleActivity extends ActionBarActivity implements View.OnCl
 				} else {
 					Toast.makeText(getApplicationContext(), "error", Toast.LENGTH_LONG).show();
 				}
-
+				System.gc();
 				break;
 			case R.id.btn_compose_alpha :
 				Bitmap maskPic_withGradient = BitmapFactory.decodeResource(getResources(),
@@ -85,6 +85,7 @@ public class BitmapSampleActivity extends ActionBarActivity implements View.OnCl
 				} else {
 					Toast.makeText(getApplicationContext(), "error", Toast.LENGTH_LONG).show();
 				}
+				System.gc();
 				break;
 		}
 
